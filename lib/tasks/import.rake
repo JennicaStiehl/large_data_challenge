@@ -19,5 +19,5 @@ task import_event: :environment do
     end
   end
 
-  
+
 end
