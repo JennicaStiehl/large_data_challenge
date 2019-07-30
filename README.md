@@ -85,6 +85,53 @@ response:
 ```json
 
 ```
+request: /api/v1/events
+response:
+```json
+{
+    "events": [
+        {
+            "sport": "Weightlifting",
+            "events": [
+                "Weightlifting Women's Super-Heavyweight",
+                "Weightlifting Men's Heavyweight",
+                "Weightlifting Men's Middleweight",
+                "Weightlifting Men's Middle-Heavyweight",
+                "Weightlifting Men's Featherweight",
+                "Weightlifting Women's Flyweight",
+                "Weightlifting Women's Middleweight",
+                "Weightlifting Women's Lightweight",
+                "Weightlifting Men's Lightweight",
+                "Weightlifting Men's Super-Heavyweight",
+                "Weightlifting Men's Light-Heavyweight",
+                "Weightlifting Women's Heavyweight",
+                "Weightlifting Women's Light-Heavyweight",
+                "Weightlifting Men's Bantamweight",
+                "Weightlifting Women's Featherweight"
+            ]
+        },
+        {
+            "sport": "Gymnastics",
+            "events": [
+                "Gymnastics Men's Individual All-Around",
+                "Gymnastics Men's Floor Exercise",
+                "Gymnastics Men's Parallel Bars",
+                "Gymnastics Men's Horizontal Bar",
+                "Gymnastics Men's Rings",
+                "Gymnastics Men's Pommelled Horse",
+                "Gymnastics Men's Team All-Around",
+                "Gymnastics Men's Horse Vault",
+                "Gymnastics Women's Team All-Around",
+                "Gymnastics Women's Uneven Bars",
+                "Gymnastics Women's Balance Beam",
+                "Gymnastics Women's Individual All-Around",
+                "Gymnastics Women's Floor Exercise",
+                "Gymnastics Women's Horse Vault"
+            ]
+        }
+    ]
+}
+```
 ## Testing
 [Should-Matchers](https://github.com/thoughtbot/shoulda-matchers)
 
