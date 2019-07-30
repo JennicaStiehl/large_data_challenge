@@ -1,8 +1,14 @@
 class Api::V1::OlympiansController < ApplicationController
 
   def index
+    if params[:age]
+      to_map = []
+      to_map << Olympian.sort(params.keys[0], params[:age])
+    else
+      to_map = Olympian.all
+    end
     olympians = Hash.new(0)
-    results = Olympian.all.map do |olympian|
+    results = to_map.map do |olympian|
       olympians =  {
         name: olympian.name,
         team: olympian.team.name,
@@ -11,7 +17,8 @@ class Api::V1::OlympiansController < ApplicationController
         total_medals_won: olympian.total_medals
       }
     end
-    render json: final_results = {olympians: results}
+    olympians = {olympians: results}
+    render json: olympians
   end
 
   def stats

@@ -12,7 +12,29 @@ Created databases: 'large_data_challenge_development'
 ```ruby
 rake db:migrate
 ```
-
+## Endpoints
+request: localhost:3000/api/v1/olympians
+response:
+```json
+{
+    "olympians": [
+        {
+            "name": "Andreea Aanei",
+            "team": "Romania",
+            "age": 22,
+            "sport": "Weightlifting",
+            "total_medals_won": 0
+        },
+        {
+            "name": "Nstor Abad Sanjun",
+            "team": "Spain",
+            "age": 23,
+            "sport": "Gymnastics",
+            "total_medals_won": 0
+        }
+      ]
+}
+```
 ## Testing
 [Should-Matchers](https://github.com/thoughtbot/shoulda-matchers)
 

@@ -34,4 +34,12 @@ class Olympian < ApplicationRecord
     count(:id)
   end
 
+  def self.sort(column = :age, search_term = 'youngest')
+    if search_term == 'oldest'
+      order("#{column} desc").first
+    else
+      order("#{column}").first
+    end
+  end
+
 end

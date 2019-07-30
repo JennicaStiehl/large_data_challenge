@@ -53,5 +53,13 @@ RSpec.describe Olympian, type: :model do
       actual = Olympian.total_competing
       expect(actual).to eq(6)
     end
+    it 'can sort olympians by age, youngest first' do
+      actual = Olympian.sort
+      expect(actual[:name]).to eq("Ali Cara")
+    end
+    it 'can sort olympians by age, oldest first' do
+      actual = Olympian.sort(:age, 'oldest')
+      expect(actual[:name]).to eq("Kevin Dara")
+    end
   end
 end
