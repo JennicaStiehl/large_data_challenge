@@ -35,6 +35,56 @@ response:
       ]
 }
 ```
+request: localhost:3000/api/v1/olympians?age=youngest
+response:
+```json
+{
+    "olympians": [
+        {
+            "name": "Ana Iulia Dascl",
+            "team": "Romania",
+            "age": 13,
+            "sport": "Swimming",
+            "total_medals_won": 0
+        }
+    ]
+}
+```
+request: localhost:3000/api/v1/olympians?age=oldest
+response:
+```json
+{
+    "olympians": [
+        {
+            "name": "Julie Brougham",
+            "team": "New Zealand",
+            "age": 62,
+            "sport": "Equestrianism",
+            "total_medals_won": 0
+        }
+    ]
+}
+```
+request: localhost:3000/api/v1/olympian_stats
+response:
+```json
+{
+    "olympian_stats": {
+        "total_competing_olympians": 2850,
+        "average_weight": {
+            "unit": "kg",
+            "male_olympians": "77.87",
+            "female_olympians": "61.41"
+        },
+        "average_age": "26.37"
+    }
+}
+```
+request: localhost:3000/api/v1/events
+response:
+```json
+
+```
 ## Testing
 [Should-Matchers](https://github.com/thoughtbot/shoulda-matchers)
 
