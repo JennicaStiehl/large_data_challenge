@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_235534) do
+ActiveRecord::Schema.define(version: 2019_07_30_014123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,28 @@ ActiveRecord::Schema.define(version: 2019_07_29_235534) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.bigint "sport_id"
+    t.index ["sport_id"], name: "index_events_on_sport_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sport_id"], name: "index_events_on_sport_id"
+  end
+
+  create_table "medalists", force: :cascade do |t|
+    t.bigint "medal_id"
+    t.bigint "olympian_id"
+    t.bigint "event_id"
+    t.bigint "game_id"
+    t.index ["event_id"], name: "index_medalists_on_event_id"
+    t.index ["game_id"], name: "index_medalists_on_game_id"
+    t.index ["medal_id"], name: "index_medalists_on_medal_id"
+    t.index ["olympian_id"], name: "index_medalists_on_olympian_id"
+  end
+
+  create_table "medals", force: :cascade do |t|
+    t.string "metal_type"
   end
 
   create_table "olympians", force: :cascade do |t|
