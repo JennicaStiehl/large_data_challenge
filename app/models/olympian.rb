@@ -10,14 +10,6 @@ class Olympian < ApplicationRecord
     self.medals.count
   end
 
-  def team_name
-    self.team
-  end
-
-  def sport_name
-    self.sport
-  end
-
   def self.average_age
     average(:age).round(2)
   end
