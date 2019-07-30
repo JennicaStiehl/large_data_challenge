@@ -33,6 +33,10 @@ Created databases: 'large_data_challenge_development'
 ```ruby
 rake db:migrate
 ```
+
+## Production
+https://polar-spire-59828.herokuapp.com/ 
+
 ## Endpoints
 request: localhost:3000/api/v1/olympians
 response:
