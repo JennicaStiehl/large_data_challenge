@@ -11,8 +11,19 @@ class Olympian < ApplicationRecord
   end
 
   def self.average_age
-    average(:age)
+    average(:age).round(2)
   end
 
+  def self.average_female_weight
+    where(gender: "F").average(:weight).round(2)
+  end
+
+  def self.average_male_weight
+    where(gender: "M").average(:weight).round(2)
+  end
+
+  def self.total_competing
+    count(:id)
+  end
 
 end
