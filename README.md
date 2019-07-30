@@ -3,8 +3,27 @@
 ## Description
 This challenge gives a large data set and requirements include importing the data and organizing it in an efficient way. Next, create methods to calculate information and statistics about the Olympics. Then create an API for this data.
 
+## Contributors
+[Jennica Stiehl](https://www.linkedin.com/in/jennicastiehl/)
+
+If you would like to be added to this list, here are the steps you might take:
+1. Clone this repo
+2. Follow the setup instructions
+3. Make your additions on a new branch
+4. Submit a Pull Request and tag @stiehlrod
+
+## techStack
+postgres (PostgreSQL) 11.4
+Ruby 2.4.1 on Rails 5.2.3
+Heroku
+
+## Database Schema
+!(Schema)[public/schema.jpg]
+
 ## Setup
 ```ruby
+bundle install
+rake import:events
 rake db:create
 ```
 Created databases: 'large_data_challenge_development'
@@ -170,3 +189,6 @@ reqponse:
 [Importing Massive Data into Rails](https://mattboldt.com/importing-massive-data-into-rails/)
 
 [Speeding Up Bulk Imports in Rails](https://blog.codeship.com/speeding-up-bulk-imports-in-rails/?source=post_page)
+
+## Known Issues
+Rake task needs to be refactored
