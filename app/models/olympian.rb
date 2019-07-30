@@ -22,4 +22,8 @@ class Olympian < ApplicationRecord
     where(gender: "M").average(:weight)
   end
 
+  def self.total_competing
+    count(:id)
+  end
+
 end

@@ -52,5 +52,9 @@ RSpec.describe Olympian, type: :model do
       actual = Olympian.average_male_weight.round(2)
       expect(actual).to eq(0.7667e2)
     end
+    it 'can calc total olympians' do
+      actual = Olympian.total_competing
+      expect(actual).to eq(6)
+    end
   end
 end
