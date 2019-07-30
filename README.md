@@ -132,6 +132,27 @@ response:
     ]
 }
 ```
+request: localhost:3000/api/v1/events/10/medalists
+reqponse:
+```json
+{
+    "event": "Taekwondo Women's Flyweight",
+    "medalists": [
+        {
+            "name": "Patimat Abakarova",
+            "team": "Azerbaijan",
+            "age": 21,
+            "medal": "Bronze"
+        },
+        {
+            "name": "Tijana Bogdanovi",
+            "team": "Serbia",
+            "age": 18,
+            "medal": "Silver"
+        }
+    ]
+}
+```
 ## Testing
 [Should-Matchers](https://github.com/thoughtbot/shoulda-matchers)
 
