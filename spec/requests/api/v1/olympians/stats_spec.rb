@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Olympian, type: :model do
+RSpec.describe "as a registered user", type: :request do
   before :each do
     @game = Game.create(name:"2016Summer")
     @box = Sport.create(name:"Box")
@@ -18,40 +18,14 @@ RSpec.describe Olympian, type: :model do
     @ben = Olympian.create(name: "Ben Dal", age:50, weight:80, height: 60, sport_id: @box.id, gender:"M", team_id: @som.id)
     @kevin = Olympian.create(name: "Kevin Dara", age:90, weight:65, height: 60, sport_id: @box.id, gender:"M", team_id: @som.id)
   end
+  it "I can see all the active parts in the system" do
+    get "/api/v1/olympian_stats"
+    expect(response).to be_successful
+    results = JSON.parse(response.body, symbolize_names: true)
 
-  describe 'validations' do
-    it { should validate_uniqueness_of :name}
-  end
-
-  describe 'relationships' do
-    it { should belong_to :team}
-    it { should belong_to :sport}
-    it { should have_many(:medals).through(:medalists) }
-  end
-
-  describe '#instance methods' do
-    it 'can calc total medals won' do
-      actual = @ali.total_medals
-      expect(actual).to eq(2)
-    end
-  end
-
-  describe '.class methods' do
-    it 'can calc avg age' do
-      actual = Olympian.average_age
-      expect(actual).to eq(0.525e2)
-    end
-    it 'can calc average weight for females' do
-      actual = Olympian.average_female_weight.round(2)
-      expect(actual).to eq(0.75e2)
-    end
-    it 'can calc average weight for males' do
-      actual = Olympian.average_male_weight.round(2)
-      expect(actual).to eq(0.7667e2)
-    end
-    it 'can calc total olympians' do
-      actual = Olympian.total_competing
-      expect(actual).to eq(6)
-    end
+    expect(results[:olympian_stats][:total_competing_olympians]).to eq(6)
+    expect(results[:olympian_stats][:average_age]).to eq("52.5")
+    expect(results[:olympian_stats][:average_weight][:male_olympians]).to eq("76.67")
+    expect(results[:olympian_stats][:average_weight][:female_olympians]).to eq("75.0")
   end
 end
