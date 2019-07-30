@@ -160,6 +160,8 @@ reqponse:
 
 [SimpleCov](https://github.com/colszowka/simplecov)
 
+![Coverage](public/coverage.jpg)
+
 ## Importing
 [ActiveRecord-Import](https://revs.runtime-revolution.com/a-better-way-to-import-all-your-records-using-activerecord-import-6053e20692f3)
 
