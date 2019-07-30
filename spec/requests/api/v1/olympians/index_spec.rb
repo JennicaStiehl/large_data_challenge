@@ -14,17 +14,37 @@ RSpec.describe "as a registered user", type: :request do
     @cara = Olympian.create(name: "Cara Dara", age:75, weight:65, height: 60, sport_id: @box.id, gender:"F", team_id: @som.id)
     @medal1 = Medalist.create(event_id:@event.id, olympian_id: @ali.id, medal_id: @silver.id, game_id: @game.id)
     @medal2 = Medalist.create(event_id:@event.id, olympian_id: @ali.id, medal_id: @bronze.id, game_id: @game.id)
-    @al = Olympian.create(name: "Al Cara", age:25, weight:85, height: 85, sport_id: @box.id, gender:"M", team_id: @som.id)
-    @ben = Olympian.create(name: "Ben Dal", age:50, weight:80, height: 60, sport_id: @box.id, gender:"M", team_id: @som.id)
+    @al = Olympian.create(name: "Al Cara", age:26, weight:85, height: 85, sport_id: @box.id, gender:"M", team_id: @som.id)
+    @ben = Olympian.create(name: "Ben Dal", age:49, weight:80, height: 60, sport_id: @box.id, gender:"M", team_id: @som.id)
     @kevin = Olympian.create(name: "Kevin Dara", age:90, weight:65, height: 60, sport_id: @box.id, gender:"M", team_id: @som.id)
   end
-  it "I can see all the active parts in the system" do
+  it "I can see all the olympians" do
     get "/api/v1/olympians"
     expect(response).to be_successful
     results = JSON.parse(response.body, symbolize_names: true)
 
     expect(results[:olympians][0][:name]).to eq("Ali Cara")
     expect(results[:olympians][0][:age]).to eq(25)
+    expect(results[:olympians][0][:team]).to eq("Somalia")
+    expect(results[:olympians][0][:sport]).to eq("Box")
+  end
+  it "I can see the youngest olympian" do
+    get "/api/v1/olympians?age=youngest"
+    expect(response).to be_successful
+    results = JSON.parse(response.body, symbolize_names: true)
+
+    expect(results[:olympians][0][:name]).to eq("Ali Cara")
+    expect(results[:olympians][0][:age]).to eq(25)
+    expect(results[:olympians][0][:team]).to eq("Somalia")
+    expect(results[:olympians][0][:sport]).to eq("Box")
+  end
+  it "I can see the oldest olympian" do
+    get "/api/v1/olympians?age=oldest"
+    expect(response).to be_successful
+    results = JSON.parse(response.body, symbolize_names: true)
+
+    expect(results[:olympians][0][:name]).to eq("Kevin Dara")
+    expect(results[:olympians][0][:age]).to eq(90)
     expect(results[:olympians][0][:team]).to eq("Somalia")
     expect(results[:olympians][0][:sport]).to eq("Box")
   end
