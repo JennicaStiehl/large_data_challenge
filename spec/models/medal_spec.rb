@@ -5,6 +5,7 @@ RSpec.describe Medal, type: :model do
     it { should validate_uniqueness_of :metal_type}
   end
   describe 'relationships' do
-    it { should belong_to :medalist}
+    it { should have_many :medalist}
+    it { should have_many(:olympians).through(:medalists) }
   end
 end
