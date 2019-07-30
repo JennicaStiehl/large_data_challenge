@@ -182,6 +182,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-import
   bootsnap (>= 1.1.0)
+  bundler (= 2.0.1)
   byebug
   capybara
   faraday
