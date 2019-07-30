@@ -43,7 +43,6 @@ task import_event: :environment do
     end
   end
 
-
   olympians = []
   Olympian.transaction do
     CSV.foreach(file_path, headers: true) do |row|
@@ -62,4 +61,43 @@ task import_event: :environment do
       olympian.save
     end
   end
+
+  games = []
+  Game.transaction do
+    CSV.foreach(file_path, headers: true) do |row|
+      games << row[6].gsub(/ /,'')
+    end
+    games.uniq.compact.each do |t|
+      game = Game.new(name: t)
+      game.save
+    end
+  end
+
+  medals = []
+  Medal.transaction do
+    CSV.foreach(file_path, headers: true) do |row|
+      medals << row[9]
+    end
+    medals.uniq.compact.each do |t|
+      medal = Medal.new(metal_type: t)
+      medal.save
+    end
+  end
+
+  medalists = []
+  Medalist.transaction do
+    CSV.foreach(file_path, headers: true) do |row|
+      medalists << {
+        olympian: Olympian.find_by_name(row[0]),
+        game_id: 1,
+        medal: Medal.find_by_metal_type(row[9]),
+        event: Event.find_by_name(row[8])
+      }
+    end
+    medalists.uniq.compact.each do |s|
+      medalist = Medalist.new(s)
+      medalist.save
+    end
+  end
+  Medalist.where(medal: 1).destroy_all
 end
