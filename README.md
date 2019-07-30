@@ -14,11 +14,13 @@ If you would like to be added to this list, here are the steps you might take:
 
 ## techStack
 postgres (PostgreSQL) 11.4
+
 Ruby 2.4.1 on Rails 5.2.3
+
 Heroku
 
 ## Database Schema
-!(Schema)[public/schema.jpg]
+![Schema](public/schema.jpg)
 
 ## Setup
 ```ruby
