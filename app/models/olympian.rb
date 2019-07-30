@@ -6,6 +6,10 @@ class Olympian < ApplicationRecord
   has_many :medalists
   has_many :medals, through: :medalists
 
+  def total_medals
+    self.medals.count
+  end
+
   def self.average_age
     average(:age)
   end
