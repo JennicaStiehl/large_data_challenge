@@ -18,6 +18,8 @@ rake db:migrate
 
 [RSpec](https://github.com/rspec/rspec-rails)
 
+[SimpleCov](https://github.com/colszowka/simplecov)
+
 ## Importing
 [ActiveRecord-Import](https://revs.runtime-revolution.com/a-better-way-to-import-all-your-records-using-activerecord-import-6053e20692f3)
 
