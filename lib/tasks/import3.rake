@@ -1,5 +1,4 @@
 require 'csv'
-require 'pry'
 require 'rake'
 require 'benchmark'
 require 'activerecord-import'
