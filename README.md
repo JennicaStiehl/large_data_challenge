@@ -25,7 +25,14 @@ Heroku
 ## Setup
 ```ruby
 bundle install
-rake import:events
+
+rake import_sport
+rake import_event
+rake import_team
+rake import_olympian
+rake import_game
+rake import_medalist
+
 rake db:create
 ```
 Created databases: 'large_data_challenge_development'
@@ -35,7 +42,7 @@ rake db:migrate
 ```
 
 ## Production
-https://polar-spire-59828.herokuapp.com/ 
+https://polar-spire-59828.herokuapp.com/
 
 ## Endpoints
 request: localhost:3000/api/v1/olympians
