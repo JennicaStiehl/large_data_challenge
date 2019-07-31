@@ -19,7 +19,7 @@ gem 'fast_jsonapi'
 gem 'faraday'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-gem 'bundler', '2.0.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'therubyracer'
