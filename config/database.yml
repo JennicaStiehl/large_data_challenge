@@ -80,6 +80,9 @@ test:
 #
 production:
   <<: *default
-  database: large_data_challenge_production
-  username: large_data_challenge
-  password: <%= ENV['LARGE_DATA_CHALLENGE_DATABASE_PASSWORD'] %>
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: olympics
+  database: olympics
+  host: /cloudsql/olympics-248400:us-west1:olympics
