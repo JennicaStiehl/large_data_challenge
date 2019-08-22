@@ -23,6 +23,8 @@ gem 'appengine'
 gem 'stackdriver'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'nokogiri', '>=1.10.4'
+
 gem 'therubyracer'
 gem 'uglifier', '>= 1.3.0'
 # Reduces boot times through caching; required in config/boot.rb
