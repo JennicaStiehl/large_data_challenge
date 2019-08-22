@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.1'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -19,10 +19,14 @@ gem 'fast_jsonapi'
 gem 'faraday'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-gem 'bundler', '2.0.1'
+gem 'appengine'
+gem 'stackdriver'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'nokogiri', '>=1.10.4'
+
+gem 'therubyracer'
+gem 'uglifier', '>= 1.3.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -33,7 +37,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
-  gem 'pry'
+  # gem 'pry'
   gem 'shoulda-matchers'
   gem 'rspec-rails'
   gem 'simplecov'

@@ -15,7 +15,8 @@ If you would like to be added to this list, here are the steps you might take:
 ## techStack
 postgres (PostgreSQL) 11.4
 
-Ruby 2.4.1 on Rails 5.2.3
+Ruby 2.6.3 on Rails 5.2.3
+Bundled with 2.0.2
 
 Heroku
 
@@ -25,7 +26,14 @@ Heroku
 ## Setup
 ```ruby
 bundle install
-rake import:events
+
+rake import_sport
+rake import_event
+rake import_team
+rake import_olympian
+rake import_game
+rake import_medalist
+
 rake db:create
 ```
 Created databases: 'large_data_challenge_development'
@@ -33,6 +41,10 @@ Created databases: 'large_data_challenge_development'
 ```ruby
 rake db:migrate
 ```
+
+## Production
+https://polar-spire-59828.herokuapp.com/
+
 ## Endpoints
 request: localhost:3000/api/v1/olympians
 response:

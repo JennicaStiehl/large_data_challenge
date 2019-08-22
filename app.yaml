@@ -1,0 +1,8 @@
+entrypoint: bundle exec rackup --port $PORT
+env: flex
+runtime: ruby
+
+env_variables:
+  SECRET_KEY_BASE: 2a0c9e679d97f2c9aca67e6bb4584b3fa6a72d629316474f3f9a33eb90bbb31f7f8611945fe4c36f82066eb7bcb277aa7af333c5bdaa0a081b481888232e144b
+beta_settings:
+  cloud_sql_instances: olympics-248400:us-west1:olympics
